@@ -1,3 +1,9 @@
+
+
+
+
+
+
 package main
 
 import (
@@ -83,8 +89,34 @@ func updateCarHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
+	
+
+
+
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
+
+
+// func updateCarHandler(w http.ResponseWriter, r *http.Request) {
+//     r.ParseForm()
+//     idStr := r.Form.Get("id")
+//     id, err := strconv.Atoi(idStr)
+//     if err != nil {
+//         log.Fatal(err)
+//     }
+
+//     make := r.Form.Get("make")
+//     model := r.Form.Get("model")
+
+//     _, err = db.Exec("UPDATE cars SET make = ?, model = ? WHERE id = ?", make, model, id)
+//     if err != nil {
+//         log.Fatal(err)
+//     }
+
+//     http.Redirect(w, r, "/", http.StatusSeeOther)
+// }
+
+
 
 func deleteCarHandler(w http.ResponseWriter, r *http.Request) {
 	idStr := r.FormValue("id")
