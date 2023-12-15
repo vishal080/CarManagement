@@ -45,7 +45,7 @@ This is a simple web application for managing cars in a garage. It allows users 
 Contributions are welcome! Fork the repository, create a branch, make your changes, and submit a pull request.
 
 
-Flow Chart 
+## Flow Chart 
 
 Start
 |
