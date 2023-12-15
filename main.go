@@ -7,6 +7,7 @@
 package main
 
 import (
+	"encoding/json"
 	"database/sql"
 	"fmt"
 	"log"
@@ -26,6 +27,7 @@ var db *sql.DB
 
 func main() {
 	// Connect to SQLite3 database
+	http.HandleFunc("/getCars", getCarsHandler)
 	var err error
 	db, err = sql.Open("sqlite3", "./cars.db")
 	if err != nil {
@@ -71,6 +73,35 @@ func addCarHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+func getCarsHandler(w http.ResponseWriter, r *http.Request) {
+	rows, err := db.Query("SELECT make, model FROM cars")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	var cars []Car
+	for rows.Next() {
+		var make, model string
+		if err := rows.Scan(&make, &model); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		cars = append(cars, Car{Make: make, Model: model})
+	}
+
+	// Convert cars data to JSON
+	carsJSON, err := json.Marshal(cars)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// Write JSON response
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(carsJSON)
 }
 
 func updateCarHandler(w http.ResponseWriter, r *http.Request) {

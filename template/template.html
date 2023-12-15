@@ -201,7 +201,8 @@
 
         <!-- Page-specific content will go here -->
         <h2>Cars in Garage</h2>
-        <ul>
+        <ul  id="carList">
+            
             <li>Car 1 <button>Edit</button> <button>Delete</button></li>
             <li>Car 2 <button>Edit</button> <button>Delete</button></li>
             <!-- ... -->
@@ -214,5 +215,18 @@
         <p>Contact Us: Email: vksingh6012@gmail.com, &copy; 2023 Car Garage: By-Vishal Chaudhary</p>
        </footer>
 </body>
-
+<script>
+    // Fetch cars data from the backend
+    fetch('/getCars')
+        .then(response => response.json())
+        .then(cars => {
+            const carList = document.getElementById('carList');
+            cars.forEach(car => {
+                const li = document.createElement('li');
+                li.textContent = `Make: ${car.Make}, Model: ${car.Model}`;
+                carList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
 </html>
