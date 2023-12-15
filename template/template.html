@@ -1,27 +1,168 @@
-<html>
-   <head>
-         <meta charset="UTF-8">
-         <link rel="stylesheet" href="/static/template.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Garage</title>
+<link rel="stylesheet" href="/static/template.css">
+    <style>
+         body {
+            margin: 0;
+            padding-bottom: 100px; 
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+        .content {
+          position: centre;
+            padding: 50px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            animation: footer-animation 3s infinite alternate;
+        }
+        @keyframes footer-animation {
+            from {
+                background-color: #333;
+            }
+            to {
+                background-color: #4e13bb;
+            }
+        }
+        footer p {
+            margin: 0px;
+        }
+        form {
+            margin: 20px auto;
+            padding: 10px;
+            width: 250px; /* Adjust the width of the form */
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .h2 {
+            margin-bottom: 10px; /* Adjust spacing between h2 and form */
+        }
+        /* Global styles */
+        /* body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+            color: #333;
+        } */
+        /* Header styles */
+        header {
+            background-color: #4e13bb;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        /* Form styles */
+        .content {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+            margin: 0 auto;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            position: relative;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+            padding: 8px;
+            background-color: #f9f9f9;
+            border-radius: 3px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Car Garage</h1>
+        <nav>
+            <a href="car-in-garage.html">Cars in Garage</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
 
-         
-         <title>Welcome </title>
-   </head>
-   <body>
-    <h1>Car Garage Management</h1>
+    <div class="content">
+        <h2 id="h2">Car Garage Management</h2>
 
-    <form id="addCarForm">
-        <label for="makeInput">Make:</label>
-        <input type="text" id="makeInput" required><br><br>
+        <!-- Form section -->
+        <form id="addCarForm">
+            <label for="makeInput">Make:</label>
+            <input type="text" id="makeInput" required><br><br>
 
-        <label for="modelInput">Model:</label>
-        <input type="text" id="modelInput" required><br><br>
+            <label for="modelInput">Model:</label>
+            <input type="text" id="modelInput" required><br><br>
 
-        <button type="submit">Add Car</button>
-    </form>
+            <button type="submit">Add Car</button>
+        </form>
 
-    <hr>
+        <hr>
 
-    <h2>Cars in Garage</h2>
-  
+        <!-- Page-specific content will go here -->
+        <h2>Cars in Garage</h2>
+        <ul>
+            <li>Car 1 <button>Edit</button> <button>Delete</button></li>
+            <li>Car 2 <button>Edit</button> <button>Delete</button></li>
+            <!-- ... -->
+        </ul>
+    </div>
+    
+
+
+    <footer>
+        <p>Contact Us: Email: vksingh6012@gmail.com, &copy; 2023 Car Garage: By-Vishal Chaudhary</p>
+       </footer>
 </body>
+
 </html>
