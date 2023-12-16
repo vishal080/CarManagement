@@ -20,10 +20,9 @@ This is a simple web application for managing cars in a garage. It allows users 
 1. **Clone Repository:**
     ```bash
     git clone https://github.com/vishal080/CarManagement.git
-2.  **Import Gofr:**
-     gofr.dev/pkg/gofr
-         ```bash
-       go get gofr.dev/pkg/gofr
+2.  **Import Gofr- gofr.dev/pkg/gofr:**
+     ```bash
+     go get gofr.dev/pkg/gofr
          ``` 
 4. **Database Setup:**
     - Ensure you have SQLite installed.
