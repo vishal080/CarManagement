@@ -45,35 +45,10 @@ This is a simple web application for managing cars in a garage. It allows users 
 Contributions are welcome! Fork the repository, create a branch, make your changes, and submit a pull request.
 
 
-## Flow Chart 
+## Process 
 
-Start
-|
-|__ User opens Car Garage Management System
-    |
-    |__ User navigates to Cars in Garage
-    |   |
-    |   |__ System retrieves car data from the database
-    |   |   |
-    |   |   |__ Display cars list on the webpage
-    |   |
-    |   |__ User clicks Add Car button
-    |       |
-    |       |__ System prompts for car details
-    |       |   |
-    |       |   |__ User enters car details
-    |       |   |
-    |       |   |__ System adds the car to the database
-    |       |
-    |       |__ Display updated cars list
-    |
-    |__ User navigates to Contact Us
-        |
-        |__ Display contact information
-        |
-        |__ User can contact via provided details
-|
-End
+![image](https://github.com/vishal080/CarManagement/assets/105032849/0c618eec-3bd9-47a0-a764-6e86f10fe31a)
+
 
 
 ## Author
