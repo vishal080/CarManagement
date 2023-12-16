@@ -169,6 +169,15 @@
             left: 77%;
             transform: translate(-50%, -50%);
             margin: 1;
+            color: #e7112d;
+            animation-name: fadeInOut;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
@@ -185,13 +194,11 @@
         <h2 class="car">Car Garage Management</h2>
 
         <!-- Form section -->
-        <form id="addCarForm">
+        <form id="addCarForm" method="post">
             <label for="makeInput">Make:</label>
             <input type="text" id="makeInput" required placeholder="DATE"><br><br>
             <label for="Owner">Owner:</label>
             <input type="text" id="Owner" required placeholder="Owner Nmae"><br><br>
-            <label for="Car">Car no:</label>
-            <input type="text" id="Car" required placeholder="Enter car no"><br><br>
             <label for="modelInput">Model:</label>
             <input type="text" id="modelInput" required placeholder="Model Name"><br><br>
             <button type="submit">Add Car</button>
@@ -203,8 +210,9 @@
         <h2>Cars in Garage</h2>
         <ul  id="carList">
             
-            <li>Car 1 <button>Edit</button> <button>Delete</button></li>
-            <li>Car 2 <button>Edit</button> <button>Delete</button></li>
+            <li>Make: Ford, Model: Mustang, Date: 2023-12-16, Owner: Vishal Chaudhary           <button>Update</button> <button>Delete</button></li>
+            <li>Make: Range Rover, Model: Model S, Date: 2023-12-16, Owner:  Vishal Singh   <button>Update</button> <button>Delete</button></li>
+            <li>Make: TATA, Model: X5, Date: 2023-12-17, Owner:  Vishal Singh     <br>         <button>Update</button> <button>Delete</button></li>
             <!-- ... -->
         </ul>
     </div>
