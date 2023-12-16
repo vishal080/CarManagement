@@ -1,11 +1,12 @@
 # Car Garage Management Web App
 This is a simple web application for managing cars in a garage. It allows users to add, update, and delete car information
 ## Features
-
+- **CRUD Operations**: Supports Create, Read, Update
 - **Add Car**: Users can add cars to the garage by providing details like make, model, etc.
 - **Update Car**: Edit existing car information.
 - **Delete Car**: Remove cars from the garage.
 - **Display Cars**: View the list of cars stored in the system.
+- **Unit Tests**: Includes unit tests covering at least 60% of the codebase.
 
 ## Tech Stack
 
@@ -31,6 +32,10 @@ This is a simple web application for managing cars in a garage. It allows users 
     go run main.go
     ```
     Access the application at [http://localhost:8080]
+ 4.  **Testing:**
+        ```bash
+      go test -v
+        ```
 ## Usage
 
 1. Access the web application in your browser.
