@@ -20,22 +20,25 @@ This is a simple web application for managing cars in a garage. It allows users 
 1. **Clone Repository:**
     ```bash
     git clone https://github.com/vishal080/CarManagement.git
-    
-   
-
-2. **Database Setup:**
+2.  **Import Gofr:**
+     -"gofr.dev/pkg/gofr"
+     -  ```bash
+      go get gofr.dev/pkg/gofr
+        ```
+4. **Database Setup:**
     - Ensure you have SQLite installed.
     - Run the application to auto-create the database (`cars.db`).
 
-3. **Run the Application:**
+ 5.  **Testing:**
+        ```bash
+      go test -v
+        ```     
+6. **Run the Application:**
     ```bash
     go run main.go
     ```
     Access the application at [http://localhost:8080]
- 4.  **Testing:**
-        ```bash
-      go test -v
-        ```
+
 ## Usage
 
 1. Access the web application in your browser.
