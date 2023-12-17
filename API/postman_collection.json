@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "unique_id_here",
+        "_postman_id": "",
         "name": "Car Garage API",
         "description": "API collection for Car Garage"
     },
@@ -12,7 +12,7 @@
                 "header": [],
                 "body": {},
                 "url": {
-                    "raw": "{{baseUrl}}/getCars",
+                    "raw": "{{}}/getCars",
                     "host": [
                         "{{baseUrl}}"
                     ],
@@ -33,9 +33,9 @@
                     "raw": "{\n\t\"make\": \"\",\n\t\"model\": \"\",\n\t\"owner\": \"\"\n}"
                 },
                 "url": {
-                    "raw": "{{baseUrl}}/addCar",
+                    "raw": "{{}}/addCar",
                     "host": [
-                        "{{baseUrl}}"
+                        "{{}}"
                     ],
                     "path": [
                         "addCar"
@@ -54,9 +54,9 @@
                     "raw": "{\n\t\"id\": \"\",\n\t\"make\": \"\",\n\t\"model\": \"\",\n\t\"owner\": \"\",\n\t\"carNo\": \"\"\n}"
                 },
                 "url": {
-                    "raw": "{{baseUrl}}/updateCar",
+                    "raw": "{{}}/updateCar",
                     "host": [
-                        "{{baseUrl}}"
+                        "{{}}"
                     ],
                     "path": [
                         "updateCar"
@@ -72,9 +72,9 @@
                 "header": [],
                 "body": {},
                 "url": {
-                    "raw": "{{baseUrl}}/deleteCar",
+                    "raw": "{{}}/deleteCar",
                     "host": [
-                        "{{baseUrl}}"
+                        "{{}}"
                     ],
                     "path": [
                         "deleteCar"
