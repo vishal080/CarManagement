@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"net/http"
 )
-
-
 func FetchCarData() ([]byte, error) {
 	resp, err := http.Get("") 
 	if err != nil {
