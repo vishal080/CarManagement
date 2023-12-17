@@ -51,6 +51,9 @@ This is a simple web application for managing cars in a garage. It allows users 
 
 Contributions are welcome! Fork the repository, create a branch, make your changes, and submit a pull request.
 
+## UML Diagram
+![image](https://github.com/vishal080/CarManagement/assets/105032849/410bfad2-079c-4f9f-abc2-4d2d0453f072)
+
 
 ## Process 
 
