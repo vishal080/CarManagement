@@ -1,0 +1,88 @@
+{
+    "info": {
+        "_postman_id": "unique_id_here",
+        "name": "Car Garage API",
+        "description": "API collection for Car Garage"
+    },
+    "item": [
+        {
+            "name": "Get All Cars",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "url": {
+                    "raw": "{{baseUrl}}/getCars",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "getCars"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Add Car",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"make\": \"\",\n\t\"model\": \"\",\n\t\"owner\": \"\"\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/addCar",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "addCar"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Car",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"id\": \"\",\n\t\"make\": \"\",\n\t\"model\": \"\",\n\t\"owner\": \"\",\n\t\"carNo\": \"\"\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/updateCar",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "updateCar"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Car",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {},
+                "url": {
+                    "raw": "{{baseUrl}}/deleteCar",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "deleteCar"
+                    ]
+                }
+            },
+            "response": []
+        }
+    
+    ]
+}

@@ -1,18 +1,15 @@
-
-
-
-
-
-
 package main
-
 import (
+	"gofr.dev/pkg/gofr"
+	"io/ioutil"
+	"net/http"
 	"encoding/json"
 	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
 	"strconv"
+	"datafetch"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -26,7 +23,20 @@ type Car struct {
 var db *sql.DB
 
 func main() {
-	// Connect to SQLite3 database
+
+
+	
+app := gofr.New()
+
+app.GET("/", func(c *gofr.Context) (interface{}, error) {
+	html, err := ioutil.ReadFile("template/template.html")
+	if err != nil {
+		return nil, err
+	}
+	return string(html), nil
+})
+
+app.Start(8080)
 	http.HandleFunc("/getCars", getCarsHandler)
 	var err error
 	db, err = sql.Open("sqlite3", "./cars.db")
@@ -35,7 +45,7 @@ func main() {
 	}
 	defer db.Close()
 
-	// Create cars table if it doesn't exist
+	
 	createTable()
 
 	http.HandleFunc("/addCar", addCarHandler)
@@ -44,7 +54,7 @@ func main() {
 	http.HandleFunc("/", indexHandler)
 
 	fmt.Println("Server is running on port 8080")
-	http.ListenAndServe(":8080", nil)
+	// http.ListenAndServe(":8080", nil)
 }
 
 func createTable() {
@@ -164,7 +174,24 @@ func deleteCarHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
-func indexHandler(w http.ResponseWriter, r *http.Request) {
-	// Serve the HTML file
-	http.ServeFile(w, r, "template/template.html")
+// func indexHandler(w http.ResponseWriter, r *http.Request) {
+// 	// Serve the HTML file
+// 	http.ServeFile(w, r, "template/template.html")
+// }
+
+
+func FetchData() ([]byte, error) {
+	/
+	resp, err := http.Get("")
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	var data []byte
+	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
+		return nil, err
+	}
+
+	return data, nil
 }
