@@ -60,8 +60,6 @@ Contributions are welcome! Fork the repository, create a branch, make your chang
 ![image](https://github.com/vishal080/CarManagement/assets/105032849/0c618eec-3bd9-47a0-a764-6e86f10fe31a)
 
 
-
-
 ## Screenshots Of Webapp
 ![image](https://github.com/vishal080/CarManagement/assets/105032849/13d29825-c4ae-4ca7-9488-db18e0ff2e94)
 
