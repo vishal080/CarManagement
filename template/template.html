@@ -41,14 +41,10 @@
 
         <hr>
 
-        <!-- Page-specific content will go here -->
+     
         <h2>Cars in Garage</h2>
         <ul  id="carList">
-            
-            <li>Make: Ford, Model: Mustang, Owner: Vishal Chaudhary        <br>    <button>Update</button> <button>Delete</button></li>
-            <li>Make: Range Rover, Model: Model S, Owner:  Vishal Chaudhary  <br>  <button>Update</button> <button>Delete</button></li>
-            <li>Make: TATA, Model: X5, , Owner:  Vishal Chaudhary    <br>         <button>Update</button> <button>Delete</button></li>
-            <!-- ... -->
+            <!-- .After Adding cars ,will show here . --> 
         </ul>
     </div>
     
@@ -66,7 +62,7 @@
             const carList = document.getElementById('carList');
             cars.forEach(car => {
                 const li = document.createElement('li');
-                li.textContent = `Make: ${car.Make}, Model: ${car.Model}`;
+                li.textContent = `Make: ${car.Make}, Model: ${car.Model},Owner: ${car.Owner}`;
                 carList.appendChild(li);
             });
         })
