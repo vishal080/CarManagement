@@ -36,8 +36,9 @@ app.GET("/", func(c *gofr.Context) (interface{}, error) {
 	return string(html), nil
 })
 
-app.Start(8080)
-	http.HandleFunc("/getCars", getCarsHandler)
+
+
+http.HandleFunc("/getCars", getCarsHandler)
 	var err error
 	db, err = sql.Open("sqlite3", "./cars.db")
 	if err != nil {
@@ -54,7 +55,7 @@ app.Start(8080)
 	http.HandleFunc("/", indexHandler)
 
 	fmt.Println("Server is running on port 8080")
-	// http.ListenAndServe(":8080", nil)
+	app.Start(8080)
 }
 
 func createTable() {
@@ -76,8 +77,9 @@ func addCarHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	make := r.Form.Get("make")
 	model := r.Form.Get("model")
+	Owner := r.Form.Get("Owner")
 
-	_, err := db.Exec("INSERT INTO cars (make, model) VALUES (?, ?)", make, model)
+	_, err := db.Exec("INSERT INTO cars (make, model, Owner) VALUES (?, ? ,?)", make, model, Owner)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -85,7 +87,7 @@ func addCarHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 func getCarsHandler(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.Query("SELECT make, model FROM cars")
+	rows, err := db.Query("SELECT make, model, Owner FROM cars")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -95,22 +97,21 @@ func getCarsHandler(w http.ResponseWriter, r *http.Request) {
 	var cars []Car
 	for rows.Next() {
 		var make, model string
-		if err := rows.Scan(&make, &model); err != nil {
+		if err := rows.Scan(&make, &model, &Owner); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		cars = append(cars, Car{Make: make, Model: model})
+		cars = append(cars, Car{Make: make, Model: model  ,Owner:Owner})
 	}
 
-	// Convert cars data to JSON
 	carsJSON, err := json.Marshal(cars)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Write JSON response
-	w.Header().Set("Content-Type", "application/json")
+
+	w.Header().Set("Content", "application/json")
 	w.Write(carsJSON)
 }
 
@@ -124,8 +125,9 @@ func updateCarHandler(w http.ResponseWriter, r *http.Request) {
 
 	make := r.Form.Get("make")
 	model := r.Form.Get("model")
+	model := r.Form.Get("Owner")
 
-	_, err = db.Exec("UPDATE cars SET make = ?, model = ? WHERE id = ?", make, model, id)
+	_, err = db.Exec("UPDATE cars SET make = ?, model = ? WHERE Owner = ?", make, model, Owner)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -137,7 +139,7 @@ func updateCarHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
-
+//........this is for testing purpose i used...///
 // func updateCarHandler(w http.ResponseWriter, r *http.Request) {
 //     r.ParseForm()
 //     idStr := r.Form.Get("id")
@@ -157,7 +159,7 @@ func updateCarHandler(w http.ResponseWriter, r *http.Request) {
 //     http.Redirect(w, r, "/", http.StatusSeeOther)
 // }
 
-
+//........................................................///////////////////////////
 
 func deleteCarHandler(w http.ResponseWriter, r *http.Request) {
 	idStr := r.FormValue("id")

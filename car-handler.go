@@ -1,17 +1,15 @@
 package main
-
 import (
 	"encoding/json"
 	"log"
 	"net/http"
 )
-
 type Car struct {
-	ID    int    `json:"id"`
+	
 	Make  string `json:"make"`
 	Model string `json:"model"`
+	Owner string  `json:"Name"`
 }
-
 func getCarsHandler(w http.ResponseWriter, r *http.Request) {
 	cars := getCarsFromDB()
 
@@ -28,8 +26,7 @@ func getCarsHandler(w http.ResponseWriter, r *http.Request) {
 
 func getCarsFromDB() []Car {
 	var cars []Car
-
-	rows, err := db.Query("SELECT id, make, model FROM cars")
+	rows, err := db.Query("SELECT Owner, make, model FROM cars")
 	if err != nil {
 		log.Println("Error querying database:", err)
 		return cars
@@ -38,7 +35,7 @@ func getCarsFromDB() []Car {
 
 	for rows.Next() {
 		var car Car
-		err := rows.Scan(&car.ID, &car.Make, &car.Model)
+		err := rows.Scan(&car.Owner, &car.Make, &car.Model)
 		if err != nil {
 			log.Println("Error scanning row:", err)
 			continue
