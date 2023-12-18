@@ -1,4 +1,5 @@
 package main
+package datafetch
 import (
 	"encoding/json"
 	"log"
