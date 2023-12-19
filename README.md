@@ -1,5 +1,5 @@
-## Coverage 96.6%
 
+![image](https://img.shields.io/badge/coverage-96.6%25-$COLOR%22%20%3E%20badge.svg)
 # Car Garage Management Web App
 This is a simple web application for managing cars in a garage. It allows users to add, update, and delete car information
 ## Features
